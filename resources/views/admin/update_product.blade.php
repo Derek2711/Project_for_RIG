@@ -51,38 +51,38 @@
             @include('admin.header')
             <div class="main-panel">
                 <div class="content-wrapper">
-                    @if(session()->has('add_message'))
+                    @if(session()->has('message'))
 
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-                        {{session()->get('add_message')}}
+                        {{session()->get('message')}}
                     </div>
 
                     @endif
                     <div class="div_center">
                         <h1 class="h2">Add product</h1>
                         <div class="container-fluid">
-                            <form action="{{url('/add_product')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{url('/update_product_confirm',$product->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <input type="text" name="title" class="form-control" placeholder="{{$product->title}}" required="">
+                                    <input type="text" name="title" class="form-control" value="{{$product->title}}" placeholder="{{$product->title}}">
                                 </div>
                                 <div class="mb-3">
-                                    <input type="text" name="description" class="form-control" placeholder="{{$product->description}}" required>
+                                    <input type="text" name="description" class="form-control" value="{{$product->description}}" placeholder="{{$product->description}}">
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" min="0" class="form-control" name="price" aria-label="Amount (to the nearest dollar)" placeholder="{{$product->price}}">
+                                    <input type="number" min="0" class="form-control" name="price" aria-label="Amount (to the nearest dollar)" value="{{$product->price}}" placeholder="{{$product->price}}">
                                     <span class="input-group-text">.00</span>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">A</span>
-                                    <input type="number" min="0" class="form-control" name="quantity" aria-label="Amount (to the nearest dollar)" placeholder="{{$product->quantity}}">
+                                    <input type="number" min="0" class="form-control" name="quantity" aria-label="Amount (to the nearest dollar)" value="{{$product->quantity}}" placeholder="{{$product->quantity}}">
                                     <span class="input-group-text">0</span>
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" min="0" class="form-control" name="discount" aria-label="Amount (to the nearest dollar)" placeholder="{{$product->discount_price}}">
+                                    <input type="number" min="0" class="form-control" name="discount" aria-label="Amount (to the nearest dollar)" value="{{$product->quantity}}" placeholder="{{$product->quantity}}">
                                     <span class="input-group-text">.00</span>
                                 </div>
                                 <div class="select">
@@ -97,7 +97,7 @@
                                     <input class="form-control file" type="file" name="image" id="formFileDisabled">
                                 </div>
                                 <div>
-                                    <input type="submit" class="btn btn-success" value="Add Product" name="submit">
+                                    <input type="submit" class="btn btn-success" value="Update Product" name="submit">
                                 </div>
                             </form>
                         </div>

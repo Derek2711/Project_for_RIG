@@ -56,7 +56,7 @@
       <div class="cpy_">
          <p class="mx-auto">© 2023 All Rights Reserved By <a href="#">For Your Fashion</a><br>
          
-            Distributed By <a href="#">SZH</a>
+            Distributed By <a href="#">Themewagon</a>
          
          </p>
       </div>

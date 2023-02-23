@@ -12,20 +12,18 @@ class HomeController extends Controller
 
     public function index()
     {
-        $product = Product::all();
-        return view('home.userpage',compact('product'));
+        $product = Product::paginate(10);
+        return view('home.userpage', compact('product'));
     }
     public function redirect()
     {
         $usertype = Auth::user()->usertype;
 
-        if($usertype == '1')
-        {
+        if ($usertype == '1') {
             return view('admin.home');
-        }
-        else
-        {
-            return view('home.userpage');
+        } else {
+            $product = Product::paginate(10);
+            return view('home.userpage', compact('product'));
         }
     }
 }

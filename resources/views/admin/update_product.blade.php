@@ -82,7 +82,7 @@
                                 </div>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text">$</span>
-                                    <input type="number" min="0" class="form-control" name="discount" aria-label="Amount (to the nearest dollar)" value="{{$product->quantity}}" placeholder="{{$product->quantity}}">
+                                    <input type="number" min="0" class="form-control" name="discount" aria-label="Amount (to the nearest dollar)" value="{{$product->discount_price}}" placeholder="{{$product->discount_price}}">
                                     <span class="input-group-text">.00</span>
                                 </div>
                                 <div class="select">

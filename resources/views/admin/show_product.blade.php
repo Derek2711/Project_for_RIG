@@ -37,8 +37,8 @@
         }
 
         .image {
-            width: 100%;
-            height: 100%;
+            width: 100px;
+            height: 100px;
         }
 
 
@@ -58,9 +58,18 @@
             <!-- partial:partials/_navbar.html -->
             @include('admin.header')
 
+
             <!-- partial -->
             <div class="main-panel">
                 <div class="content-wrapper">
+                    @if(session()->has('message'))
+
+                    <div class="alert alert-danger">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+                        {{session()->get('message')}}
+                    </div>
+
+                    @endif
                     <div class="center">
                         <h2 class="h2">Product Table</h2>
                         <table class="show">
@@ -73,6 +82,8 @@
                                 <th>Price</th>
                                 <th>Discount Price</th>
                                 <th>Product Image</th>
+                                <th>Delete</th>
+                                <th>Edit</th>
                             </tr>
                             @foreach($product as $product)
                             <tr>
@@ -85,10 +96,10 @@
                                 <td>${{$product->price}}</td>
                                 <td>${{$product->discount_price}}</td>
                                 <td class="">
-                                    <div class="text-center">
-                                        <img src="/product/{{$product->image}}" class="rounded image" alt="{{$product->title}}">
-                                    </div>
+                                    <img src="/product/{{$product->image}}" class="image" alt="{{$product->title}}">
                                 </td>
+                                <td><a onclick="return confirm('Are you sure to delete this product')" href="{{url('delete_product',$product->id)}}" class="btn btn-danger">Delete</a></td>
+                                <td><a  href="{{url('update_product',$product->id)}}" class="btn btn-primary">Edit</a></td>
                                 <!-- <td>air force</td>
                                 <td>good</td>
                                 <td>3</td>

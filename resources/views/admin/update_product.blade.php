@@ -88,9 +88,7 @@
                                 <div class="select">
                                     <select class="form-select" aria-label="Default select example" name="catagory">
                                         <option value="{{$product->catagory}}" selected>{{$product->catagory}}</option>
-                                        @foreach($catagory as $catagory)
-                                        <option value="{{$catagory->catagory_name}}">{{$catagory->catagory_name}}</option>
-                                        @endforeach
+                                       
                                     </select>
                                 </div>
                                 <div class="mb-3">

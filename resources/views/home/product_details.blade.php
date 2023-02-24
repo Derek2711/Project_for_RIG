@@ -23,10 +23,11 @@
     <!-- responsive style -->
     <link href="home/css/responsive.css" rel="stylesheet" />
     <style>
-        .h6{
+        .h6 {
             margin-bottom: 10px;
             font-weight: bold;
         }
+        
     </style>
 </head>
 
@@ -39,17 +40,23 @@
             <div class="box">
 
                 <div class="img-box">
-                    <img src="/product/{{$product->image}}" alt="">
+                    <img src="/product/{{$product->image}}" alt="" style="border-radius: 10px;">
+                    <!-- <img src="/product/{{$product->image}}" class="rounded mx-auto d-block" alt="..."> -->
                 </div>
-                <div class="detail-box" style="margin-top: 20px;text-align: center;">
+               
+                <div class="detail-box" style="margin-top: 20px;">
                     <h5>
                         {{$product->title}}
                     </h5>
                     <br>
+                    <h6>
+                        Price
+                    </h6>
                     @if($product->discount_price != null)
                     <h6>
                         ${{$product->discount_price}}
                     </h6>
+
                     <h6 style="text-decoration: line-through; color: red;">
                         ${{$product->price}}
                     </h6>
@@ -61,8 +68,9 @@
                     <div style="font-size: 20px;font-weight: bold;margin-top: 20px;">
                         <h6 class="h6">Catagory : {{$product->catagory}}</h6>
                         <h6 class="h6">Description : {{$product->description}}</h6>
-                        <h6 class="h6">Only {{$product->quantity}} items left!</h6>
+                        <h6 class="h6" style="color: red;">Only {{$product->quantity}} items left!</h6>
                     </div>
+                    <a href="{{url('/add_cart',$product->id)}}" class="btn btn-danger">Add to Cart</a>
                 </div>
             </div>
         </div>

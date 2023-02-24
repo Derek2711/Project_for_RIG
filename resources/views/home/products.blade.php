@@ -14,7 +14,8 @@
                      <a href="{{url('product_details',$products->id)}}" class="option1">
                         Details
                      </a>
-                     <a href="" class="option2">
+                     
+                     <a href="{{url('/add_cart',$products->id)}}" class="option2">
                         Buy Now
                      </a>
                   </div>

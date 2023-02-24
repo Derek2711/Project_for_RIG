@@ -30,8 +30,13 @@ class HomeController extends Controller
 
     public function product_details($id)
     {
-        $product = product::find($id);
-        return view('home.product_details', compact('product'));
+        if (Auth::id()) {
+            $product = product::find($id);
+            return view('home.product_details', compact('product'));
+        }
+        else{
+            return redirect('login');
+        }
     }
     public function add_cart(Request $request, $id)
     {
@@ -50,7 +55,7 @@ class HomeController extends Controller
             $cart->quantity = 1;
             //from product
             $cart->product_title = $product->title;
-            if ($product->discount_price!= null) {
+            if ($product->discount_price != null) {
                 $cart->price = $product->discount_price;
             } else {
                 $cart->price = $product->price;

@@ -16,7 +16,7 @@
                      </a>
                      
                      <a href="{{url('/add_cart',$products->id)}}" class="option2">
-                        Buy Now
+                        Add to cart
                      </a>
                   </div>
                </div>

@@ -9,6 +9,9 @@ use App\Models\Product;
 
 class AdminController extends Controller
 {
+    public function view_dashboard(){
+        return view('admin.home');
+    }
     public function view_catagory()
     {
         $data = catagory::all();

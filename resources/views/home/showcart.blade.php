@@ -47,7 +47,8 @@
             background-image: linear-gradient(to left, azure, white);
 
         }
-        .order{
+
+        .order {
             margin-top: 30px;
         }
     </style>
@@ -68,6 +69,14 @@
         </div>
 
         @endif -->
+        @if(session()->has('message'))
+
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            {{session()->get('message')}}
+        </div>
+
+        @endif
 
 
         <div class="center">
@@ -105,7 +114,7 @@
                 ?>
                 @endforeach
                 <tr style="height: 70px;font-weight: bolder;" class="th">
-                    <td colspan="3">Your total price is </td>
+                    <td colspan="3">Total</td>
                     <td style="color: red;">${{$total_price}}</td>
                     <!-- <td><a class="btn btn-danger">Back</a></td> -->
                 </tr>
@@ -113,7 +122,7 @@
             </table>
             <div class="order">
                 <h5 style="font-size: 20px;margin-bottom: 10px;">Proceed to order</h5>
-                <a href="" class="btn btn-info">Cash on delivery</a>
+                <a href="{{url('cash_order')}}" class="btn btn-info">Cash on delivery</a>
                 <a href="" class="btn btn-info">Pay with E-wallet</a>
             </div>
 

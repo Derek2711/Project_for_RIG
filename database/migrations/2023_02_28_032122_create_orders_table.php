@@ -19,11 +19,14 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('user_id')->nullable();
 
-            $table->string('name')->nullable();
-            $table->string('name')->nullable();
+            $table->string('product_title')->nullable();
+            $table->string('quantity')->nullable();
+            $table->string('price')->nullable();
+            $table->string('image')->nullable();
+            $table->string('product_id')->nullable();
 
-            $table->string('name')->nullable();
-            $table->string('name')->nullable();
+            $table->string('payment_status')->nullable();
+            $table->string('delivery_status')->nullable();
             $table->timestamps();
         });
     }

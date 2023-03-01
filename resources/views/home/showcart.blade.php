@@ -77,6 +77,15 @@
         </div>
 
         @endif
+        @if(session()->has('rm_message'))
+
+        <div class="alert alert-danger">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            {{session()->get('rm_message')}}
+        </div>
+
+        @endif
+
 
 
         <div class="center">

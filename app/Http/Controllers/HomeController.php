@@ -65,7 +65,7 @@ class HomeController extends Controller
             $cart->Product_id = $product->id;
 
             $cart->save();
-            return redirect()->back()->with('message','Product added successfully');
+            return redirect()->back()->with('message','Product add to cart successfully');
 
             // dd($product);
 
@@ -89,7 +89,7 @@ class HomeController extends Controller
         $cart=cart::find($id);
         $cart->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('rm_message','Product removed');
     }
 
     public function cash_order(){
